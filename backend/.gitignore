@@ -1,0 +1,15 @@
+__pycache__
+.env
+.DS_Store
+.venv
+
+# Local secret values
+*.tfvars
+*.tfvars.json
+
+# Terraform state (contains secrets in plain text!)
+terraform.tfstate
+terraform.tfstate.backup
+.terraform/
+
+terraform.tfvars
