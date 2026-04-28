@@ -40,6 +40,18 @@ Since Terraform already created the service in Step 1, tell ECS to restart the t
 ```bash
 aws ecs update-service --cluster postwave-dev-cluster --service postwave-dev-service --force-new-deployment
 ```
+Since Terraform already created the service in Step 1, you need to tell ECS to restart the tasks so they pull the latest image you just pushed. Replace the cluster and service names with your actual values if different:
+```bash
+# Replace with your ECS cluster and service names if needed
+aws ecs update-service \
+    --cluster <your-ecs-cluster-name> \
+    --service <your-ecs-service-name> \
+    --force-new-deployment
+```
+For example:
+```bash
+aws ecs update-service --cluster postwave-dev-cluster --service postwave-dev-service --force-new-deployment
+```
 
 ### 5. Deploy the Frontend (Next.js)
 Once the backend is live (check the ALB URL provided in Terraform outputs), deploy the static frontend.

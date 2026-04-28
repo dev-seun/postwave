@@ -23,9 +23,7 @@ async def lifespan(app: FastAPI):
             methods = ','.join(route.methods)
             print(f"{methods:10} {route.path}")
             
-    yield
-    # --- SHUTDOWN ---
-    # (APScheduler is handled by atexit in your start_scheduler function)
+    yield 
     
 app = FastAPI(lifespan=lifespan)
 
